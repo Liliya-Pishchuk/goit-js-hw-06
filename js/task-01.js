@@ -1,6 +1,6 @@
 const categoriesEl = document.querySelectorAll(".item");
 const numberOfCategory = categoriesEl.length;
-console.log("Number of categories:", numberOfCategory);
+console.log(`Number of categories: ${numberOfCategory}`);
 
 [...categoriesEl].forEach((element) => {
   const categoryName = element.querySelector("h2");
