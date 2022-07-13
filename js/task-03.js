@@ -1,3 +1,13 @@
+// Напиши скрипт для створення галереї зображень на підставі масиву даних.
+// HTML містить список ul.gallery.
+
+// Використовуй масив об'єктів images для створення елементів <img>,
+// вкладених в < li >. Для створення розмітки використовуй шаблонні рядки
+// і метод insertAdjacentHTML().
+
+// Усі елементи галереї повинні додаватися в DOM за одну операцію додавання.
+// Додай мінімальне оформлення галереї флексбоксами або грідами через CSS класи.
+
 const images = [
   {
     url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -15,16 +25,16 @@ const images = [
 
 const makeGaleryItemMurkup = ({ url, alt }) => {
   return `<li>
-    <img class = "gallery_img" src="${url}" alt="${alt}">
+    <img class = "gallery_img" src="${url}" alt="${alt}" width="320">
   </li>`;
 };
 
-const makeGaleryItems = images.map(makeGaleryItemMurkup).join("");
+const makeGaleryItemsEl = images.map(makeGaleryItemMurkup).join("");
 
 const galleryListEl = document.querySelector(".gallery");
 
-galleryListEl.insertAdjacentHTML("afterbegin", makeGaleryItems);
+galleryListEl.insertAdjacentHTML("afterbegin", makeGaleryItemsEl);
 
-// const galleryImgEl = document.querySelector(".gallery_img");
-// galleryImgEl.width = 320;
-galleryListEl.setAttribute("style", "display: flex; list-style-type: none");
+const galleryImgEl = document.querySelector(".gallery_img");
+
+galleryListEl.setAttribute("style", "display: flex;");
